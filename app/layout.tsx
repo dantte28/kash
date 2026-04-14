@@ -45,16 +45,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </ClientWrapper>
 
-        {/* Registro do Service Worker */}
+        {/* Registro do Service Worker — inline para detecção pelo PWABuilder */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js').catch(function() {});
-                });
-              }
-            `,
+            __html: `if('serviceWorker'in navigator){navigator.serviceWorker.register('/sw.js');}`,
           }}
         />
       </body>
