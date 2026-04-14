@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Sidebar from '../components/Sidebar'
+import ClientWrapper from '../components/ClientWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,12 +36,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className={inter.className}>
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <main className="flex-1 min-h-screen overflow-x-hidden w-full md:ml-[var(--sidebar-width,210px)]">
-            {children}
-          </main>
-        </div>
+        <ClientWrapper>
+          <div className="flex min-h-screen">
+            <Sidebar />
+            <main className="flex-1 min-h-screen overflow-x-hidden w-full md:ml-[var(--sidebar-width,210px)]">
+              {children}
+            </main>
+          </div>
+        </ClientWrapper>
 
         {/* Registro do Service Worker */}
         <script

@@ -85,6 +85,17 @@ const navItems = [
       </svg>
     ),
   },
+  {
+    href: '/tutorial',
+    label: 'Tutorial',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M9 8V13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="9" cy="5.5" r="1" fill="currentColor" />
+      </svg>
+    ),
+  },
 ]
 
 export default function Sidebar() {
@@ -152,7 +163,7 @@ export default function Sidebar() {
         </div>
       </aside>
 
-      {/* Mobile bottom nav */}
+      {/* Mobile bottom nav — Dashboard, Venda, Histórico, Estoque, Fechamento */}
       <nav
         className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around"
         style={{
@@ -161,7 +172,7 @@ export default function Sidebar() {
           borderTop: '0.5px solid #E8EDF2',
         }}
       >
-        {navItems.slice(0, 5).map((item) => {
+        {[navItems[0], navItems[1], navItems[2], navItems[3], navItems[5]].map((item) => {
           const active = isActive(item.href)
           return (
             <Link
